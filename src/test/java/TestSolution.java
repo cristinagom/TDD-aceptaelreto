@@ -2,15 +2,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import problem1.Problem1v1;
-import problem1.Problem1v3;
+import problem1.Solution;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestProblemv3 {
+public class TestSolution {
 
     @Test
     void checkEvenOdd() {
@@ -22,15 +23,18 @@ public class TestProblemv3 {
 
     @Test
     @DisplayName("Test Problem1v0 with input and output files")
-    void check() throws IOException {
+    void checkFiles() throws IOException {
         // GIVEN: Direct paths using Path.of
         Path inputPath = Path.of("src/test/resources/test1.in");
         Path expectedOutputPath = Path.of("src/test/resources/test1.out");
 
-        Path actualOutputPath = tempDir.resolve("src/test/resources/output.out");
+        List<String> inputLines = Files.readAllLines(inputPath);
+        List<String> expectedOutputLines = Files.readAllLines(expectedOutputPath);
+
+        Path actualOutputPath = tempDir.resolve("output.out");
 
         // WHEN: Run the processing logic
-        Problem1v3.process(inputPath, actualOutputPath);
+        Solution.process(inputPath, actualOutputPath);
 
         // THEN: Verify output content
         String expected = Files.readString(expectedOutputPath);

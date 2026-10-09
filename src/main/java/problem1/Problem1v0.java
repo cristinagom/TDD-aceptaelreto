@@ -1,14 +1,13 @@
 package problem1;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Problem1v1 {
+/* 1. Write a program that reads a sequence of integers from the keyboard and prints "EVEN" if the number is even and "ODD" otherwise. */
+/* Solution: read from keyboard, all inside main*/
+public class Problem1v0 {
 
     public static void main(String[] args) throws IOException {
-        // TODO Auto-generated method stub
         Scanner keyboard = new Scanner(System.in);
         int number;
         while (keyboard.hasNextLine()) {
